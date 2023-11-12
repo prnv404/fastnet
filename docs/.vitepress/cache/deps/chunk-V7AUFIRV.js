@@ -687,7 +687,8 @@ var BaseReactiveHandler = class {
 			return shallow;
 		} else if (
 			key === "__v_raw" &&
-			receiver === (isReadonly2 ? (shallow ? shallowReadonlyMap : readonlyMap) : shallow ? shallowReactiveMap : reactiveMap).get(target)
+			receiver ===
+				(isReadonly2 ? (shallow ? shallowReadonlyMap : readonlyMap) : shallow ? shallowReactiveMap : reactiveMap).get(target)
 		) {
 			return target;
 		}
@@ -3524,7 +3525,9 @@ function defineAsyncComponent(source) {
 							return pendingRequest;
 						}
 						if (!comp) {
-							warn2(`Async component loader resolved to undefined. If you are using retry(), make sure to return its return value.`);
+							warn2(
+								`Async component loader resolved to undefined. If you are using retry(), make sure to return its return value.`
+							);
 						}
 						if (comp && (comp.__esModule || comp[Symbol.toStringTag] === "Module")) {
 							comp = comp.default;
@@ -4721,7 +4724,9 @@ function mergeOptions(to, from, strats, asMixin = false) {
 	}
 	for (const key in from) {
 		if (asMixin && key === "expose") {
-			warn2(`"expose" option is ignored when declared in mixins or extends. It should only be declared in the base component itself.`);
+			warn2(
+				`"expose" option is ignored when declared in mixins or extends. It should only be declared in the base component itself.`
+			);
 		} else {
 			const strat = internalOptionMergeStrats[key] || (strats && strats[key]);
 			to[key] = strat ? strat(to[key], from[key]) : from[key];
@@ -6306,7 +6311,17 @@ function baseCreateRenderer(options, createHydrationFns) {
 			if (oldProps !== EMPTY_OBJ) {
 				for (const key in oldProps) {
 					if (!isReservedProp(key) && !(key in newProps)) {
-						hostPatchProp(el, key, oldProps[key], null, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+						hostPatchProp(
+							el,
+							key,
+							oldProps[key],
+							null,
+							isSVG,
+							vnode.children,
+							parentComponent,
+							parentSuspense,
+							unmountChildren
+						);
 					}
 				}
 			}
@@ -7154,7 +7169,15 @@ var TeleportImpl = {
 			const currentAnchor = wasDisabled ? mainAnchor : targetAnchor;
 			isSVG = isSVG || isTargetSVG(target);
 			if (dynamicChildren) {
-				patchBlockChildren(n1.dynamicChildren, dynamicChildren, currentContainer, parentComponent, parentSuspense, isSVG, slotScopeIds);
+				patchBlockChildren(
+					n1.dynamicChildren,
+					dynamicChildren,
+					currentContainer,
+					parentComponent,
+					parentSuspense,
+					isSVG,
+					slotScopeIds
+				);
 				traverseStaticChildren(n1, n2, true);
 			} else if (!optimized) {
 				patchChildren(n1, n2, currentContainer, currentAnchor, parentComponent, parentSuspense, isSVG, slotScopeIds, false);
@@ -8062,7 +8085,8 @@ function formatComponentName(instance, Component, isRoot = false) {
 				}
 			}
 		};
-		name = inferFromRegistry(instance.components || instance.parent.type.components) || inferFromRegistry(instance.appContext.components);
+		name =
+			inferFromRegistry(instance.components || instance.parent.type.components) || inferFromRegistry(instance.appContext.components);
 	}
 	return name ? classify(name) : isRoot ? `App` : `Anonymous`;
 }

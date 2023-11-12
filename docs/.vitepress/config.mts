@@ -10,7 +10,7 @@ export default defineConfig({
 			{ text: "Home", link: "/" },
 			{ text: "Examples", link: "/markdown-examples" }
 		],
-
+		logo: "../images/image.png",
 		sidebar: [
 			{
 				text: "Examples",
