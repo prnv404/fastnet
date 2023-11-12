@@ -35,6 +35,12 @@ class Application extends EventEmitter {
 		server.listen(...args);
 	}
 
+	/**
+	 * The `use` function adds a middleware function to an array of middleware functions.
+	 * @param {MiddlewareFunction} fn - The parameter `fn` is a middleware function that will be added to
+	 * the `middleware` array.
+	 * @returns The "use" function is returning the instance of the object on which it is called.
+	 */
 	use(fn: MiddlewareFunction) {
 		if (typeof fn !== "function") throw new TypeError("middleware must be a function");
 		this.middleware.push(fn);
