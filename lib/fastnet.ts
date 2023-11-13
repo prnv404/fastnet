@@ -1,4 +1,4 @@
-import { EventEmitter } from "stream";
+import { EventEmitter } from "events";
 import * as http from "http";
 
 type MiddlewareFunction = (req: Request, res: Response, next?: () => void) => void;
