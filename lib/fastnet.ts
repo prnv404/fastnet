@@ -14,7 +14,6 @@ class Application extends EventEmitter {
 	public context: any;
 	public proxy: boolean;
 	public env: string;
-	public maxIpsCount: number = 0;
 
 	constructor(options?: any) {
 		super();
