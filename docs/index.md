@@ -1,11 +1,13 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
-    name: "FastNet🔧"
+    name: "FASTNET"
     text: "A fast and easy web framework for nodejs"
-    tagline: Fast web Framework for Nodejs
+    image:
+      src: ./images/output.png
+      alt: fastnet-logo
+    tagline: web made easy
     actions:
         - theme: brand
           text: Get Started
@@ -13,7 +15,7 @@ hero:
         - theme: alt
           text: API Reference
           link: /api-examples
-    image: /home/pranav/projects/fastnet/docs/images/image.png
+    
 
 features:
     - icon: 🚀

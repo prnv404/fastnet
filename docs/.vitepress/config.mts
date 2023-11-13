@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-	title: "FastNet",
+	title: "fastnet",
 	description: "A fast and easy web framework for nodejs",
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
@@ -10,7 +10,7 @@ export default defineConfig({
 			{ text: "Home", link: "/" },
 			{ text: "Examples", link: "/markdown-examples" }
 		],
-		logo: "../images/image.png",
+		logo: "../images/ouput.png",
 		sidebar: [
 			{
 				text: "Examples",
