@@ -31,7 +31,7 @@ class Application extends EventEmitter {
 	 */
 	listen(...args: Parameters<typeof http.Server.prototype.listen>) {
 		const server = http.createServer();
-		server.listen(...args);
+		return server.listen(...args);
 	}
 
 	/**
