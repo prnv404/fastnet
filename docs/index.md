@@ -5,8 +5,8 @@ hero:
     name: "FASTNET"
     text: "A fast and easy web framework for nodejs"
     image:
-      src: ./images/output.png
-      alt: fastnet-logo
+        src: ./images/output.png
+        alt: fastnet-logo
     tagline: web made easy
     actions:
         - theme: brand
@@ -15,7 +15,6 @@ hero:
         - theme: alt
           text: API Reference
           link: /api-examples
-    
 
 features:
     - icon: 🚀
