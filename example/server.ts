@@ -2,7 +2,7 @@ import FastNet from "../lib/fastnet";
 
 const app = new FastNet();
 
-app.use((req, res, next) => {
+app.use((ctx) => {
 	console.log("Hello world");
 });
 

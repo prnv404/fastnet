@@ -20,7 +20,8 @@ module.exports = {
 		"@typescript-eslint/ban-ts-comment": "off",
 		"@typescript-eslint/no-namespace": "off",
 		"no-case-declarations": "off",
-		"no-extra-semi": "off"
+		"no-extra-semi": "off",
+		"prefer-rest-params":"off"
 	},
 	ignorePatterns: ["example/*", "tests/**/*"]
 };
