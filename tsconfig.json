@@ -18,7 +18,7 @@
 		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
 		"paths": {
 			/* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
-			"@lib/*": ["lib/*"],
+			"@lib/*": ["src/*"],
 			"@example": ["example/*"]
 		},
 		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
@@ -31,5 +31,5 @@
 		"forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
 	},
 	"exclude": ["node_modules", "dist", "coverage"],
-	"include": ["lib/**/*.ts", "example/**/*.ts"]
+	"include": ["src/**/*.ts", "example/**/*.ts"]
 }

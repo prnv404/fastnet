@@ -1,7 +1,7 @@
 // example.ts
 
 import { Server } from "http";
-import FastNet from "../lib/fastnet";
+import FastNet from "../src/fastnet";
 
 const app = new FastNet();
 
