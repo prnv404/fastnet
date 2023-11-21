@@ -1,5 +1,15 @@
 import FastNet from "../src/fastnet";
 
-const app = new FastNet();
+const app = FastNet();
 
-app.listen(3000);
+// app.get("/", () => {
+// 	console.log("helo world");
+// });
+
+// app.post(() => {
+// 	console.log("helloworld");
+// });
+
+app.listen(3000, () => {
+	console.log("server is listengin");
+});

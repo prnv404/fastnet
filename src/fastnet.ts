@@ -1,32 +1,9 @@
-import { EventEmitter } from "events";
-import * as http from "http";
+import Application from "./applicatoin";
 
-/** -----------Types-------------- */
+// const Methods = ["get", "post"];
 
-/**-------------------------------- */
+export default function () {
+	const app = new Application();
 
-/**
- * Expose `Application` class.
- * Inherits from `Emitter.prototype`.
- */
-
-class FastNet extends EventEmitter {
-	middleware: [];
-	request: any;
-	response: any;
-	proxy: boolean;
-	env: string;
-	constructor(options?: any) {
-		super();
-		this.middleware = [];
-		this.env = options?.env || process.env.NODE_ENV || "development";
-		this.proxy = options?.proxy || false;
-	}
-
-	listen(...args: any) {
-		const server = http.createServer(() => {});
-		return server.listen(...args);
-	}
+	return app;
 }
-
-export default FastNet;

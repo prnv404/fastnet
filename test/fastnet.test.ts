@@ -3,10 +3,9 @@
 import { Server } from "http";
 import FastNet from "../src/fastnet";
 
-const app = new FastNet();
+const app =  FastNet();
 
 let server: Server;
-
 beforeAll(() => {
 	server = app.listen(3000);
 });
