@@ -21,7 +21,8 @@ module.exports = {
 		"@typescript-eslint/no-namespace": "off",
 		"no-case-declarations": "off",
 		"no-extra-semi": "off",
-		"prefer-rest-params": "off"
+		"prefer-rest-params": "off",
+		"@typescript-eslint/no-unused-vars": "off"
 	},
 	ignorePatterns: ["example/*", "tests/**/*"]
 };

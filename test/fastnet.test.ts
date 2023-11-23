@@ -3,11 +3,11 @@
 import { Server } from "http";
 import FastNet from "../src/fastnet";
 
-const app =  FastNet();
+const app = new FastNet();
 
 let server: Server;
 beforeAll(() => {
-	server = app.listen(3000);
+	server = app.listen(3001);
 });
 
 describe("Testing Application", () => {

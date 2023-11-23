@@ -1,28 +1,16 @@
 import { IncomingMessage } from "http";
-/** __________Types__________ */
+import parseurl from "parseurl";
 
-interface IRequest {
-	header: any;
-	headers: any;
-	url: string;
-	// origin: string;
-	// href: string;
-	method: string;
-	// path: string;
-	// query: { [key: string]: string | string[] };
-	// querystring: string;
-	// search: string;
-	// host: string;
-	// hostname: string;
-}
-
-/**____________________________ */
-class Request implements IRequest {
+class Request {
 	private req: IncomingMessage;
 
 	constructor(req: IncomingMessage) {
 		this.req = req;
 	}
+
+	/**
+	 * @
+	 */
 	get header() {
 		return this.req.headers;
 	}
@@ -31,16 +19,8 @@ class Request implements IRequest {
 		this.req.headers = val;
 	}
 
-	get headers() {
-		return this.req.headers;
-	}
-
-	set headers(val) {
-		this.req.headers = val;
-	}
-
 	get url() {
-		return this.req.url || "";
+		return this.req.url;
 	}
 
 	set method(val: string) {
@@ -53,73 +33,42 @@ class Request implements IRequest {
 		return this.req.method || "";
 	}
 
-	// get path() {
-	// 	return parseUrl(this.req).pathname || "";
-	// }
+	get body() {
+		return new Promise((resolve, reject) => {
+			let body = "";
+			let result;
+			this.req.on("data", (chunk) => {
+				body += chunk.toString("utf-8");
+			});
 
-	// set path(val) {
-	// 	const url = parseUrl(this.req);
-	// 	if (url.pathname === val) return;
+			this.req.on("end", () => {
+				try {
+					if (body.length !== 0) {
+						this.req.body = JSON.parse(body);
+						result = this.req.body;
+					} else {
+						result = null;
+					}
+					resolve(result);
+				} catch (error) {
+					reject(error);
+				}
+			});
+		});
+	}
 
-	// 	url.pathname = val;
-	// 	url.path = null;
+	get path() {
+		return parseurl(this.req)?.pathname || "";
+	}
 
-	// 	this.url = stringify(url);
-	// }
-
-	// get query() {
-	// 	const str = this.querystring;
-	// 	const c: { [key: string]: any } = {};
-	// 	return c[str] || (c[str] = qs.parse(str));
-	// }
-
-	// set query(obj) {
-	// 	this.querystring = qs.stringify(obj);
-	// }
-
-	// get querystring() {
-	// 	if (!this.req) return "";
-	// 	return parseUrl(this.req).query || "";
-	// }
-
-	// set querystring(str) {
-	// 	const url = parseUrl(this.req);
-	// 	if (url.search === `?${str}`) return;
-
-	// 	url.search = str;
-	// 	url.path = null;
-
-	// 	this.url = stringify(url);
-	// }
-
-	// get search() {
-	// 	if (!this.querystring) return "";
-	// 	return `?${this.querystring}`;
-	// }
-
-	// set search(str) {
-	// 	this.querystring = str;
-	// }
-
-	// get host() {
-	// 	const proxy = this.app.proxy;
-	// 	let host = proxy && this.get("X-Forwarded-Host");
-	// 	if (!host) {
-	// 		if (this.req.httpVersionMajor >= 2) host = this.get(":authority");
-	// 		if (!host) host = this.get("Host");
-	// 	}
-	// 	if (!host) return "";
-	// 	return host.split(/\s*,\s*/, 1)[0];
-	// }
-
-	// get hostname() {
-	// 	const host = this.host;
-	// 	if (!host) return "";
-	// 	if (host[0] === "[") return this.URL.hostname || ""; // IPv6
-	// 	return host.split(":", 1)[0];
-	// }
-
-	// Implement the rest of the properties/methods as needed
+	set path(path: string) {
+		const url = parseurl(this.req);
+		if (url?.pathname === path) return;
+		if (url?.pathname) {
+			url.pathname = path;
+			url.path = null;
+		}
+	}
 }
 
 export default Request;
