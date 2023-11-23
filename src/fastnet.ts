@@ -15,7 +15,7 @@ declare module "http" {
 
 /**
  * TODO:
- * Funcationality needed
+ *
  * Middleware functionality
  * handle that http method request
  */
