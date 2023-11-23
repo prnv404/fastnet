@@ -64,7 +64,7 @@ class Application extends EventEmitter {
 		return server.listen(...args);
 	}
 
-	_handleRequest() {
+	private _handleRequest() {
 		const handleRequest = async (req: http.IncomingMessage, res: http.ServerResponse): Promise<void> => {
 			this.request = new Request(req);
 			this.response = new Response(res);
