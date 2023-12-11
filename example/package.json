@@ -7,13 +7,14 @@
 	"bugs": "https://github.com/prnv404/fastnet/issues",
 	"license": "MIT",
 	"scripts": {
-		"start": "nodemon --watch './**/*.ts' --exec 'ts-node' server.ts"
+		"start": "nodemon --watch './**/*.ts' --exec 'tsx' server.ts"
 	},
 	"devDependencies": {
 		"@types/node": "^20.9.4",
 		"nodemon": "^3.0.1",
 		"prettier": "^3.0.3",
 		"ts-node": "^10.9.1",
+		"tsx": "^4.6.2",
 		"typescript": "^5.3.2"
 	},
 	"repository": {
