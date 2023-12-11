@@ -7,42 +7,24 @@ import Response from "./response";
 
 declare module "http" {
 	interface IncomingMessage {
-		body: any;
+		body: unknown;
 	}
 }
-
-/**-------------------------------- */
-
-/**
- * TODO:
- *
- * Middleware functionality
- * handle that http method request
- */
 
 class Application extends EventEmitter {
 	middleware: { path: string; method: string; callback: (req: any, res: any, next?: any) => void }[];
 	private request: Request;
 	private response: Response;
-	public proxy: boolean;
-	public env: string;
 	[key: string]: any;
 
 	constructor(options?: any) {
 		super();
+		// middleware array
 		this.middleware = [];
-		this.env = options?.env || process.env.NODE_ENV || "development";
-		this.proxy = options?.proxy || false;
 		this.request = Object.create(Request);
 		this.response = Object.create(Response);
 	}
 
-	/**
-	 * The `use` function in TypeScript is used to add middleware to an array, with an optional path and
-	 * callback function.
-	 * @param {any} args - The `args` parameter is an array of any type. It represents the arguments
-	 * passed to the `use` function.
-	 */
 	use(...args: any) {
 		let path: string;
 		let callback: any;
@@ -68,17 +50,17 @@ class Application extends EventEmitter {
 		const handleRequest = async (req: http.IncomingMessage, res: http.ServerResponse): Promise<void> => {
 			this.request = new Request(req);
 			this.response = new Response(res);
-			await this.dispatch(0);
+			await this.process(0);
 		};
 		return handleRequest;
 	}
 
-	private async dispatch(index: number): Promise<void> {
+	private async process(index: number): Promise<void> {
 		if (index < 0 || index >= this.middleware.length) {
 			return Promise.resolve();
 		}
 		const layer = this.middleware[index];
-		const next = async () => await this.dispatch(index + 1);
+		const next = async () => await this.process(index + 1);
 		try {
 			const url = this.request.url;
 			const method = this.request.method.toLocaleLowerCase();
@@ -95,15 +77,22 @@ class Application extends EventEmitter {
 		}
 	}
 
+	/** Http methods signatures */
 	get(path: string, callback: (...args: any) => Promise<void>): Application {
 		return this;
 	}
 	post(path: string, callback: (...args: any) => void): Application {
 		return this;
 	}
-	put(path: string, callback: (...args: any) => void) {}
-	patch(path: string, callback: (...args: any) => void) {}
-	delete(path: string, callback: (...args: any) => void) {}
+	put(path: string, callback: (...args: any) => void) {
+		return this;
+	}
+	patch(path: string, callback: (...args: any) => void) {
+		return this;
+	}
+	delete(path: string, callback: (...args: any) => void) {
+		return this;
+	}
 }
 
 const Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"];
