@@ -1,6 +1,6 @@
 {
 	"name": "fastnet",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"author": "pranav s",
 	"description": "A fast and easy web framework for nodejs",
 	"main": "index.js",

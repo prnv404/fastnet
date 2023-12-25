@@ -1,16 +1,15 @@
 name: "publish package to npm"
-on: 
-  push:
-    tags:
-      - 'v*'
+on:
+    push:
+        tags:
+            - "v*"
 
 defaults:
-  run:
-    shell: bash
+    run:
+        shell: bash
 
 env:
- ACTIONS_RUNNER_DEBUG: true
-  
+    ACTIONS_RUNNER_DEBUG: true
 
 jobs:
     publish:
