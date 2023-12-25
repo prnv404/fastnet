@@ -30,7 +30,6 @@ class Response {
 	send(data: any) {
 		if (typeof data === "object") {
 			const buff = Buffer.from(JSON.stringify(data));
-			console.log(buff);
 			this.res.setHeader("Content-Type", "application/json");
 			this.res.write(buff);
 		}
