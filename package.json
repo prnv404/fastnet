@@ -3,9 +3,13 @@
 	"version": "0.0.1",
 	"author": "pranav s",
 	"description": "A fast and easy web framework for nodejs",
-	"main": "index.js",
 	"bugs": "https://github.com/prnv404/fastnet/issues",
 	"license": "MIT",
+	"main": "./dist/index.js",
+	"types": "./build/index.d.ts",
+	"files": [
+		"build/**/*"
+	],
 	"scripts": {
 		"prepare": "husky install",
 		"format": "prettier --write .",
@@ -16,7 +20,9 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"commit": "cz",
-		"start:server": "nodemon --watch 'examble/**/*.ts' --exec 'ts-node' example/server.ts"
+		"start:server": "nodemon --watch 'examble/**/*.ts' --exec 'ts-node' example/server.ts",
+		"clean": "del ./dist/*",
+		"build": "npm run clean && tsc"
 	},
 	"config": {
 		"commitizen": {
@@ -38,6 +44,7 @@
 		"@typescript-eslint/parser": "^6.7.2",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
+		"del-cli": "^5.1.0",
 		"eslint": "^8.49.0",
 		"husky": "^8.0.0",
 		"jest": "^29.7.0",
