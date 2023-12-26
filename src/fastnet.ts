@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import * as http from "http";
-import {Request} from "./request";
-import {Response} from "./response";
+import { Request } from "./request";
+import { Response } from "./response";
 
 /** -----------Types-------------- */
 
@@ -96,22 +96,22 @@ arguments using the rest parameter syntax (`...args: any`). */
 		try {
 			const url = this.request.url?.split("?")[0];
 			const method = this.request.method.toLocaleLowerCase();
-
 			const urlSegments = url?.split("/").filter(Boolean);
 			const layerSegments = layer.path.split("/").filter(Boolean);
+			console.log(urlSegments);
+			console.log(layerSegments);
 
 			if (
-				(layerSegments.length === urlSegments!.length &&
-					layerSegments.every(
-						(segment, i) => segment === urlSegments![i] || segment.startsWith(":")
-					)) ||
-				layer.method === method ||
-				layer.method === ""
+				layerSegments.length === urlSegments!.length &&
+				layerSegments.every(
+					(segment, i) => segment === urlSegments![i] || segment.startsWith(":")
+				) &&
+				layer.method === method
 			) {
 				this.request.params = {};
 				// Extract route parameters and add them to the request object
 				urlSegments!.forEach((segment, i) => {
-					if (layerSegments[i].startsWith(":")) {
+					if (i < layerSegments.length && layerSegments[i].startsWith(":")) {
 						const paramName = layerSegments[i].slice(1);
 						this.request.params[paramName] = segment;
 					}
@@ -120,7 +120,6 @@ arguments using the rest parameter syntax (`...args: any`). */
 				// Execute the callback of the matched middleware layer
 				layer.callback(this.request, this.response, next);
 			} else {
-				// No match, proceed to the next middleware layer
 				next();
 			}
 		} catch (err) {
@@ -137,7 +136,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * resolves to void.
 	 * @returns The `Application` object is being returned.
 	 */
-	get(path: string, callback: (req:Request,res:Response) => Promise<void>): Application {
+	get(path: string, callback: (req: Request, res: Response) => Promise<void>): Application {
 		return this;
 	}
 	/**
@@ -148,7 +147,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * is requested. It can take any number of arguments of any type.
 	 * @returns The method is returning the current instance of the Application class.
 	 */
-	post(path: string, callback: (req:Request,res:Response) => void): Application {
+	post(path: string, callback: (req: Request, res: Response) => void): Application {
 		return this;
 	}
 	/**
@@ -158,7 +157,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * can take any number of arguments.
 	 * @returns The `put` method is returning the current instance of the object.
 	 */
-	put(path: string, callback: (req:Request,res:Response) => void) {
+	put(path: string, callback: (req: Request, res: Response) => void) {
 		return this;
 	}
 	/**
@@ -170,7 +169,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * does not return anything.
 	 * @returns The "this" keyword is being returned.
 	 */
-	patch(path: string, callback: (req:Request,res:Response) => void) {
+	patch(path: string, callback: (req: Request, res: Response) => void) {
 		return this;
 	}
 	/**
@@ -182,7 +181,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * is completed. It can take any number of arguments, but it doesn't return any value.
 	 * @returns The `delete` method is returning `this`, which refers to the current object.
 	 */
-	delete(path: string, callback: (req:Request,res:Response) => void) {
+	delete(path: string, callback: (req: Request, res: Response) => void) {
 		return this;
 	}
 }
