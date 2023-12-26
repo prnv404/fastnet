@@ -3,16 +3,16 @@
 
 # FastNet - A Minimalistic Node.js Web Framework
 
-FastNet is a lightweight and easy-to-use Node.js web framework designed to streamline the process of building web servers. With a focus on simplicity and speed, FastNet allows developers to quickly create RESTful APIs and web applications with minimal boilerplate code.
+FastNet is a lightweight and easy-to-use Node.js web framework designed to be very minimal With a focus on simplicity , Fasnet api's are same signature of express 
 
 ## Features
 
 - **Simplicity:** FastNet is designed to be easy to use and understand, making it an excellent choice for both beginners and experienced developers.
-- **Routing:** Define routes effortlessly and handle HTTP requests with a clean and intuitive syntax.
+- **Routing:** Only In app routing feature.
 - **Middleware Support:** Easily integrate middleware functions for customizing request and response handling.
 - **JSON Body Parsing:** Parse JSON request bodies with built-in support for handling incoming data.
 - **HTTP Methods:** Support for common HTTP methods including GET, POST, PUT, and DELETE.
-- **Flexibility:** Customize your server to fit your needs without unnecessary complexities.
+- **Flexibility:** It easy to modifiy because its very minimal.
 
 ## Installation
 
@@ -137,7 +137,7 @@ Creates a new `Response` instance with the provided `ServerResponse` object repr
 # Example of Todo Application
 
 ```typescript
-import FastNet, { Request, Response } from '../src/index'
+import FastNet, { Request, Response } from 'fastnet'
 
 const app = new FastNet();
 
