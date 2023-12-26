@@ -1,6 +1,6 @@
 {
 	"name": "fastnet",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"author": "pranav s",
 	"description": "A fast and easy web framework for nodejs",
 	"bugs": "https://github.com/prnv404/fastnet/issues",
@@ -25,7 +25,6 @@
 		"build": "npm run clean && tsc",
 		"pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
 	},
-	
 	"devDependencies": {
 		"@types/jest": "^29.5.10",
 		"@types/node": "^20.9.4",
