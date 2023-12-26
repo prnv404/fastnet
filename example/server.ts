@@ -4,10 +4,8 @@ import Request from "../src/request";
 
 const app = new FastNet();
 
-
-
 app.get("/hello/:id", async (req: Request, res: Response) => {
-	const id = req.params.id
+	const id = req.params.id;
 	console.log(await req.body);
 	res.send("finally its working yay!");
 });

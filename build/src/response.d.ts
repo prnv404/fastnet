@@ -6,15 +6,15 @@
 import { ServerResponse } from "http";
 /**______________________ */
 declare class Response {
-    private res;
-    constructor(res: ServerResponse);
-    /**
-     *
-     * @returns socket
-     */
-    get socket(): import("net").Socket | null;
-    get status(): number;
-    set status(code: number);
-    send(data: any): void;
+	private res;
+	constructor(res: ServerResponse);
+	/**
+	 *
+	 * @returns socket
+	 */
+	get socket(): import("net").Socket | null;
+	get status(): number;
+	set status(code: number);
+	send(data: any): void;
 }
 export default Response;
