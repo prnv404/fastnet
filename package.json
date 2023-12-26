@@ -1,11 +1,11 @@
 {
 	"name": "fastnet",
-	"version": "0.0.2",
+	"version": "0.0.4",
 	"author": "pranav s",
 	"description": "A fast and easy web framework for nodejs",
 	"bugs": "https://github.com/prnv404/fastnet/issues",
 	"license": "MIT",
-	"main": "./dist/index.js",
+	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"files": [
 		"build/**/*"
@@ -22,7 +22,8 @@
 		"commit": "cz",
 		"start:server": "nodemon --watch 'examble/**/*.ts' --exec 'ts-node' example/server.ts",
 		"clean": "del ./build/*",
-		"build": "npm run clean && tsc"
+		"build": "npm run clean && tsc",
+		"pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
 	},
 	"config": {
 		"commitizen": {
@@ -30,7 +31,7 @@
 		}
 	},
 	"lint-staged": {
-		".lib/**/*.ts": [
+		".src/**/*.ts": [
 			"eslint --fix",
 			"git add"
 		]
