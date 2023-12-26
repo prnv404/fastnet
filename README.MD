@@ -133,7 +133,8 @@ Creates a new `Response` instance with the provided `ServerResponse` object repr
 
 ---
 
-#Example of Todo Application
+
+# Example of Todo Application
 
 ```typescript
 import FastNet, { Request, Response } from '../src/index'
@@ -204,6 +205,7 @@ app.listen(PORT, () => {
 ```
 ----
 
-#Contributing
+
+# Contributing
 
 Contributions are welcome! There is a need for a lot of improvement to this because it is very minimal. Please open an issue or submit a pull request
