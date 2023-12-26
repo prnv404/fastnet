@@ -3,11 +3,11 @@
 
 # FastNet - A Minimalistic Node.js Web Framework
 
-FastNet is a lightweight and easy-to-use Node.js web framework designed to be very minimal With a focus on simplicity , Fasnet api's are same signature of express 
+FastNet is a lightweight and easy-to-use Node.js web framework designed to be very minimal. With a focus on simplicity, FastNet APIs have the same signature as Express.
 
 ## Features
 
-- **Simplicity:** FastNet is designed to be easy to use and understand, making it an excellent choice for both beginners and experienced developers.
+- **Simplicity:** FastNet is designed to be easy to use and understand
 - **Routing:** Only In app routing feature.
 - **Middleware Support:** Easily integrate middleware functions for customizing request and response handling.
 - **JSON Body Parsing:** Parse JSON request bodies with built-in support for handling incoming data.
