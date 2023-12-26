@@ -21,7 +21,7 @@
 		"test:coverage": "jest --coverage",
 		"commit": "cz",
 		"start:server": "nodemon --watch 'examble/**/*.ts' --exec 'ts-node' example/server.ts",
-		"clean": "del ./dist/*",
+		"clean": "del ./build/*",
 		"build": "npm run clean && tsc"
 	},
 	"config": {
