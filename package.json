@@ -25,17 +25,7 @@
 		"build": "npm run clean && tsc",
 		"pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
 	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
-	},
-	"lint-staged": {
-		".src/**/*.ts": [
-			"eslint --fix",
-			"git add"
-		]
-	},
+	
 	"devDependencies": {
 		"@types/jest": "^29.5.10",
 		"@types/node": "^20.9.4",
