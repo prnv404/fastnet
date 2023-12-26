@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import * as http from "http";
-import Request from "./request";
-import Response from "./response";
+import {Request} from "./request";
+import {Response} from "./response";
 
 /** -----------Types-------------- */
 
@@ -137,7 +137,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * resolves to void.
 	 * @returns The `Application` object is being returned.
 	 */
-	get(path: string, callback: (...args: any) => Promise<void>): Application {
+	get(path: string, callback: (req:Request,res:Response) => Promise<void>): Application {
 		return this;
 	}
 	/**
@@ -148,7 +148,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * is requested. It can take any number of arguments of any type.
 	 * @returns The method is returning the current instance of the Application class.
 	 */
-	post(path: string, callback: (...args: any) => void): Application {
+	post(path: string, callback: (req:Request,res:Response) => void): Application {
 		return this;
 	}
 	/**
@@ -158,7 +158,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * can take any number of arguments.
 	 * @returns The `put` method is returning the current instance of the object.
 	 */
-	put(path: string, callback: (...args: any) => void) {
+	put(path: string, callback: (req:Request,res:Response) => void) {
 		return this;
 	}
 	/**
@@ -170,7 +170,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * does not return anything.
 	 * @returns The "this" keyword is being returned.
 	 */
-	patch(path: string, callback: (...args: any) => void) {
+	patch(path: string, callback: (req:Request,res:Response) => void) {
 		return this;
 	}
 	/**
@@ -182,7 +182,7 @@ arguments using the rest parameter syntax (`...args: any`). */
 	 * is completed. It can take any number of arguments, but it doesn't return any value.
 	 * @returns The `delete` method is returning `this`, which refers to the current object.
 	 */
-	delete(path: string, callback: (...args: any) => void) {
+	delete(path: string, callback: (req:Request,res:Response) => void) {
 		return this;
 	}
 }

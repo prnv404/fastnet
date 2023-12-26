@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import parseurl from "parseurl";
 
-class Request {
+export class Request {
 	private req: IncomingMessage;
 
 	constructor(req: IncomingMessage) {
@@ -112,4 +112,3 @@ class Request {
 	}
 }
 
-export default Request;

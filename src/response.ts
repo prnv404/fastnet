@@ -4,7 +4,7 @@ import { ServerResponse } from "http";
 
 /**______________________ */
 
-class Response {
+export class Response {
 	private res: ServerResponse;
 
 	constructor(res: ServerResponse) {
@@ -41,4 +41,3 @@ class Response {
 	}
 }
 
-export default Response;
