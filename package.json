@@ -1,6 +1,6 @@
 {
 	"name": "fastnet",
-	"version": "0.0.5",
+	"version": "0.0.8",
 	"author": "pranav s",
 	"description": "A fast and easy web framework for nodejs",
 	"bugs": "https://github.com/prnv404/fastnet/issues",

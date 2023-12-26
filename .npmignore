@@ -1,8 +1,0 @@
-.git
-.gitignore
-.github
-.prettierrc
-.eslintrc.js
-.husky
-jest.config.ts
-node_modules

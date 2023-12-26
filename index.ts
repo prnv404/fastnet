@@ -1,3 +1,5 @@
-export * from "./src/fastnet";
-export * from "./src/request";
-export * from "./src/response";
+import FastNet from "./src/fastnet";
+export * as Request from "./src/request";
+export * as Response from "./src/response";
+
+export default FastNet
