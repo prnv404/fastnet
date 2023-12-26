@@ -56,7 +56,7 @@ export class Request {
 	 * The above function returns a promise that resolves with the parsed JSON body of an HTTP request.
 	 * @returns A Promise is being returned.
 	 */
-	get body() {
+	get body():Promise<any> {
 		return new Promise((resolve, reject) => {
 			let body = "";
 			let result;
